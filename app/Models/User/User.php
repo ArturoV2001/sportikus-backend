@@ -13,8 +13,8 @@ class User extends Authenticatable
     use HasFactory;
     use Notifiable;
     use SoftDeletes;
-    use UserScopes;
     use UserRelationships;
+    use UserScopes;
 
     protected $table = 'users';
 
@@ -24,13 +24,18 @@ class User extends Authenticatable
         'name',
         'last_name',
         'weight',
-        'birthdate'
+        'birthdate',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
     ];
+
+    protected static function newFactory()
+    {
+        return UserFactory::new();
+    }
 
     /**
      * Get the attributes that should be cast.
@@ -43,10 +48,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    protected static function newFactory()
-    {
-        return UserFactory::new();
     }
 }

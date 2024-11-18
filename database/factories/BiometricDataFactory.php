@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class BiometricDataFactory extends Factory
 {
     protected $model = BiometricData::class;
+
     /**
      * Define the model's default state.
      *

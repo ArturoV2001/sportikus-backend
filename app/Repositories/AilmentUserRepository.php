@@ -19,9 +19,10 @@ class AilmentUserRepository extends IndexRepository
         return AilmentUser::query()->create($data);
     }
 
-    public function updateAilmentUser(array $data, AilmentUser $ailmentUser ): AilmentUser
+    public function updateAilmentUser(array $data, AilmentUser $ailmentUser): AilmentUser
     {
         $ailmentUser->update($data);
+
         return $ailmentUser;
     }
 }

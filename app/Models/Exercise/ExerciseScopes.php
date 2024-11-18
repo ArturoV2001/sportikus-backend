@@ -2,9 +2,7 @@
 
 namespace App\Models\Exercise;
 
-use App\Models\MuscularGroup\MuscularGroup;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 trait ExerciseScopes
 {

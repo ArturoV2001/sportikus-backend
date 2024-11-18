@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 trait MuscleRelationships
 {
-    public function exercise():HasMany
+    public function exercise(): HasMany
     {
         return $this->hasMany(Exercise::class);
     }

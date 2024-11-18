@@ -13,6 +13,7 @@ trait MealRelationships
     {
         return $this->belongsTo(User::class);
     }
+
     public function mealFoods(): HasMany
     {
         return $this->hasMany(MealFood::class);

@@ -19,9 +19,10 @@ class MuscleRepository extends IndexRepository
         return Muscle::query()->create($data);
     }
 
-    public function updateMuscle(array $data, Muscle $muscle ): Muscle
+    public function updateMuscle(array $data, Muscle $muscle): Muscle
     {
         $muscle->update($data);
+
         return $muscle;
     }
 }

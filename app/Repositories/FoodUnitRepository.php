@@ -19,9 +19,10 @@ class FoodUnitRepository extends IndexRepository
         return FoodUnit::query()->create($data);
     }
 
-    public function updateFoodUnit(array $data, FoodUnit $foodUnit ): FoodUnit
+    public function updateFoodUnit(array $data, FoodUnit $foodUnit): FoodUnit
     {
         $foodUnit->update($data);
+
         return $foodUnit;
     }
 }

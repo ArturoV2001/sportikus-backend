@@ -10,16 +10,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Routine extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     use RoutineRelationships;
     use RoutineScopes;
+    use SoftDeletes;
 
     protected $table = 'routines';
 
     protected $fillable = [
         'frequency',
         'duration',
-        'user_id'
+        'user_id',
     ];
 
     protected static function newFactory()

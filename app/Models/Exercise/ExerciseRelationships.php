@@ -10,15 +10,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 trait ExerciseRelationships
 {
-    public function muscularGroup():BelongsTo
+    public function muscularGroup(): BelongsTo
     {
         return $this->belongsTo(MuscularGroup::class);
     }
-    public function muscle():BelongsTo
+
+    public function muscle(): BelongsTo
     {
         return $this->belongsTo(Muscle::class);
     }
-    public function routineExercise():HasMany
+
+    public function routineExercise(): HasMany
     {
         return $this->hasMany(RoutineExercise::class);
     }

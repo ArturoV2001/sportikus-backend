@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\RoutineExerciseBestPerformance;
+namespace App\Models\ExerciseBestPerformance;
 
 use Illuminate\Database\Eloquent\Builder;
 
-trait RoutineExerciseBestPerformanceScopes
+trait ExerciseBestPerformanceScopes
 {
     public function scopeFilterByColumn(Builder $query, string $column, mixed $value): void
     {

@@ -19,9 +19,10 @@ class BiometricDataRepository extends IndexRepository
         return BiometricData::query()->create($data);
     }
 
-    public function updateBiometricData(array $data, BiometricData $biometricData ): BiometricData
+    public function updateBiometricData(array $data, BiometricData $biometricData): BiometricData
     {
         $biometricData->update($data);
+
         return $biometricData;
     }
 }

@@ -12,23 +12,27 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 trait UserRelationships
 {
-    public function alimentUser():HasMany
+    public function alimentUser(): HasMany
     {
-        return $this->hasMany(AilmentUser::class );
+        return $this->hasMany(AilmentUser::class);
     }
-    public function biometricData():HasMany
+
+    public function biometricData(): HasMany
     {
         return $this->hasMany(BiometricData::class);
     }
-    public function meals():HasMany
+
+    public function meals(): HasMany
     {
         return $this->hasMany(Meal::class);
     }
-    public function recommendations():HasMany
+
+    public function recommendations(): HasMany
     {
         return $this->hasMany(Recommendation::class);
     }
-    public function routine():BelongsTo
+
+    public function routine(): BelongsTo
     {
         return $this->belongsTo(Routine::class);
     }

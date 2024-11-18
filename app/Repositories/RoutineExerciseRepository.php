@@ -19,9 +19,10 @@ class RoutineExerciseRepository extends IndexRepository
         return RoutineExercise::query()->create($data);
     }
 
-    public function updateRoutineExercise(array $data, RoutineExercise $routineExercise ): RoutineExercise
+    public function updateRoutineExercise(array $data, RoutineExercise $routineExercise): RoutineExercise
     {
         $routineExercise->update($data);
+
         return $routineExercise;
     }
 }

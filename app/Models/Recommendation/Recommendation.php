@@ -10,21 +10,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Recommendation extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     use RecommendationRelationships;
     use RecommendationScopes;
+    use SoftDeletes;
 
     protected $table = 'recommendations';
 
     protected $fillable = [
         'user_id',
-        'recommendation'
+        'recommendation',
     ];
 
     protected static function newFactory()
     {
         return RecommendationFactory::new();
     }
-
-
 }

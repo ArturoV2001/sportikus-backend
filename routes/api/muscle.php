@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MuscleController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('muscles', [MuscleController::class, 'index'])->name('muscles.index');
 Route::post('muscles', [MuscleController::class, 'store'])->name('muscles.store');

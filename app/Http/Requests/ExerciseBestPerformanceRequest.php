@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RoutineExerciseBestPerformanceRequest extends FormRequest
+class ExerciseBestPerformanceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

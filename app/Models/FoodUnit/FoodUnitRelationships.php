@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 trait FoodUnitRelationships
 {
-    public function food():HasMany
+    public function food(): HasMany
     {
         return $this->hasMany(Food::class);
     }

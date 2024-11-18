@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class ExerciseFactory extends Factory
 {
     protected $model = Exercise::class;
+
     /**
      * Define the model's default state.
      *

@@ -19,9 +19,10 @@ class MuscularGroupRepository extends IndexRepository
         return MuscularGroup::query()->create($data);
     }
 
-    public function updateMuscularGroup(array $data, MuscularGroup $muscularGroup ): MuscularGroup
+    public function updateMuscularGroup(array $data, MuscularGroup $muscularGroup): MuscularGroup
     {
         $muscularGroup->update($data);
+
         return $muscularGroup;
     }
 }

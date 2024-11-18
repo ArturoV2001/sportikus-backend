@@ -19,9 +19,10 @@ class RoutineRepository extends IndexRepository
         return Routine::query()->create($data);
     }
 
-    public function updateRoutine(array $data, Routine $routine ): Routine
+    public function updateRoutine(array $data, Routine $routine): Routine
     {
         $routine->update($data);
+
         return $routine;
     }
 }

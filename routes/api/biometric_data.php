@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BiometricDataController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('biometric-data', [BiometricDataController::class, 'index'])->name('biometric-data.index');
 Route::post('biometric-data', [BiometricDataController::class, 'store'])->name('biometric-data.store');

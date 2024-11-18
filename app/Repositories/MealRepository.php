@@ -19,9 +19,10 @@ class MealRepository extends IndexRepository
         return Meal::query()->create($data);
     }
 
-    public function updateMeal(array $data, Meal $meal ): Meal
+    public function updateMeal(array $data, Meal $meal): Meal
     {
         $meal->update($data);
+
         return $meal;
     }
 }

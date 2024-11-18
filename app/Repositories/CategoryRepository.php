@@ -22,6 +22,7 @@ class CategoryRepository extends IndexRepository
     public function updateCategory(array $data, Category $category): Category
     {
         $category->update($data);
+
         return $category;
     }
 }

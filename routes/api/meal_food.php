@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MealFoodController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('meal-foods', [MealFoodController::class, 'index'])->name('meal-foods.index');
 Route::post('meal-foods', [MealFoodController::class, 'store'])->name('meal-foods.store');

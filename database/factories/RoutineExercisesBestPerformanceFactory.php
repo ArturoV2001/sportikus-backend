@@ -3,16 +3,17 @@
 namespace Database\Factories;
 
 use App\Models\Exercise\Exercise;
+use App\Models\ExerciseBestPerformance\ExerciseBestPerformance;
 use App\Models\Routine\Routine;
-use App\Models\RoutineExerciseBestPerformance\RoutineExerciseBestPerformance;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\RoutineExerciseBestPerformance\RoutineExerciseBestPerformance>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ExerciseBestPerformance\ExerciseBestPerformance>
  */
 class RoutineExercisesBestPerformanceFactory extends Factory
 {
-    protected $model = RoutineExerciseBestPerformance::class;
+    protected $model = ExerciseBestPerformance::class;
+
     /**
      * Define the model's default state.
      *

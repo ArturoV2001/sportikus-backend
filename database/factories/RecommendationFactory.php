@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class RecommendationFactory extends Factory
 {
     protected $model = Recommendation::class;
+
     /**
      * Define the model's default state.
      *

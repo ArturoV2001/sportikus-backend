@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class AilmentUserFactory extends Factory
 {
     protected $model = AilmentUser::class;
+
     /**
      * Define the model's default state.
      *

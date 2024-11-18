@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 trait RoutineRelationships
 {
-    public function user():BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function routineExercise():HasMany
+
+    public function routineExercise(): HasMany
     {
         return $this->hasMany(RoutineExercise::class);
     }

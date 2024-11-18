@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class MealFoodFactory extends Factory
 {
     protected $model = MealFood::class;
+
     /**
      * Define the model's default state.
      *

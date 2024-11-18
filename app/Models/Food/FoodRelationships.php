@@ -14,10 +14,12 @@ trait FoodRelationships
     {
         return $this->belongsTo(Category::class);
     }
+
     public function foodUnit(): BelongsTo
     {
         return $this->belongsTo(FoodUnit::class);
     }
+
     public function mealFoods(): HasMany
     {
         return $this->hasMany(MealFood::class);

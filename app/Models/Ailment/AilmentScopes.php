@@ -4,7 +4,8 @@ namespace App\Models\Ailment;
 
 use Illuminate\Database\Eloquent\Builder;
 
-trait AilmentScopes {
+trait AilmentScopes
+{
     public function scopeFilterByColumn(Builder $query, string $column, mixed $value): void
     {
         switch ($column) {

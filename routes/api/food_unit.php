@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FoodUnitController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('food-units', [FoodUnitController::class, 'index'])->name('food-units.index');
 Route::post('food-units', [FoodUnitController::class, 'store'])->name('food-units.store');

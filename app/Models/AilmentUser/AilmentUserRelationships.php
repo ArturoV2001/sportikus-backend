@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 trait AilmentUserRelationships
 {
-    public function user():BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function aliment():BelongsTo
+
+    public function aliment(): BelongsTo
     {
         return $this->belongsTo(Ailment::class);
     }

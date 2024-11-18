@@ -4,13 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
-return new class extends Migration {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+return new class extends Migration
+{
     public function up()
     {
         // Llaves foráneas de la tabla 'biometric_data'
@@ -56,8 +51,8 @@ return new class extends Migration {
             $table->foreign('exercise_id')->references('id')->on('exercises')->onDelete('cascade');
         });
 
-        // Llaves foráneas de la tabla 'routine_exercises_best_performance'
-        Schema::table('routine_exercises_best_performance', function (Blueprint $table) {
+        // Llaves foráneas de la tabla 'exercises_best_performance'
+        Schema::table('exercises_best_performance', function (Blueprint $table) {
             $table->foreign('routine_exercise_id')->references('id')->on('routine_exercises')->onDelete('cascade');
         });
 
@@ -68,11 +63,6 @@ return new class extends Migration {
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         // Eliminar llaves foráneas
@@ -108,7 +98,7 @@ return new class extends Migration {
             $table->dropForeign(['routine_id', 'exercise_id']);
         });
 
-        Schema::table('routine_exercises_best_performance', function (Blueprint $table) {
+        Schema::table('exercises_best_performance', function (Blueprint $table) {
             $table->dropForeign(['routine_exercise_id']);
         });
 
@@ -117,4 +107,3 @@ return new class extends Migration {
         });
     }
 };
-

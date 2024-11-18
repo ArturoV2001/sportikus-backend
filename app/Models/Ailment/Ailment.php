@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ailment extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
     use AilmentRelationships;
     use AilmentScopes;
+    use HasFactory;
+    use SoftDeletes;
 
     protected $table = 'ailments';
 
@@ -26,5 +26,4 @@ class Ailment extends Model
     {
         return AilmentFactory::new();
     }
-
 }

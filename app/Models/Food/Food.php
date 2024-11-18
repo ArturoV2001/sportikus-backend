@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Food extends Model
 {
-    use FoodScopes;
     use FoodRelationships;
+    use FoodScopes;
     use HasFactory;
     use SoftDeletes;
 

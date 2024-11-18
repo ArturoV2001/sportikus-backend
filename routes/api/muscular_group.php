@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MuscularGroupController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('muscular-groups', [MuscularGroupController::class, 'index'])->name('muscular-groups.index');
 Route::post('muscular-groups', [MuscularGroupController::class, 'store'])->name('muscular-groups.store');

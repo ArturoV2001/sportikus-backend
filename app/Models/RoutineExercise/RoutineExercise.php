@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class RoutineExercise extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     use RoutineExerciseRelationships;
     use RoutineExerciseScopes;
+    use SoftDeletes;
 
     protected $table = 'routine_exercises';
 
@@ -21,7 +21,7 @@ class RoutineExercise extends Model
         'sets',
         'routine_id',
         'exercise_id',
-        'day'
+        'day',
     ];
 
     protected static function newFactory()

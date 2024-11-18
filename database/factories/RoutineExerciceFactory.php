@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class RoutineExerciceFactory extends Factory
 {
     protected $model = RoutineExercise::class;
+
     /**
      * Define the model's default state.
      *

@@ -2,7 +2,4 @@
 
 namespace App\Models\Ailment;
 
-trait AilmentRelationships
-{
-
-}
+trait AilmentRelationships {}

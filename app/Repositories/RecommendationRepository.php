@@ -19,9 +19,10 @@ class RecommendationRepository extends IndexRepository
         return Recommendation::query()->create($data);
     }
 
-    public function updateRecommendation(array $data, Recommendation $recommendation ): Recommendation
+    public function updateRecommendation(array $data, Recommendation $recommendation): Recommendation
     {
         $recommendation->update($data);
+
         return $recommendation;
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecommendationController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('recommendation', [RecommendationController::class, 'index'])->name('recommendation.index');
 Route::post('recommendation', [RecommendationController::class, 'store'])->name('recommendation.store');

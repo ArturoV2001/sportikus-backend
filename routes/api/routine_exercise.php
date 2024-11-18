@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoutineExerciseController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('routine-exercises', [RoutineExerciseController::class, 'index'])->name('routine-exercises.index');
 Route::post('routine-exercises', [RoutineExerciseController::class, 'store'])->name('routine-exercises.store');

@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class MuscleFactory extends Factory
 {
     protected $model = Muscle::class;
+
     /**
      * Define the model's default state.
      *

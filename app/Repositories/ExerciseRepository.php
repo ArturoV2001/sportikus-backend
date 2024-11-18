@@ -19,9 +19,10 @@ class ExerciseRepository extends IndexRepository
         return Exercise::query()->create($data);
     }
 
-    public function updateExercise(array $data, Exercise $exercise ): Exercise
+    public function updateExercise(array $data, Exercise $exercise): Exercise
     {
         $exercise->update($data);
+
         return $exercise;
     }
 }

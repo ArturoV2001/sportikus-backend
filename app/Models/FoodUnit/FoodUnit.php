@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class FoodUnit extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
     use FoodUnitRelationships;
     use FoodUnitScopes;
+    use HasFactory;
+    use SoftDeletes;
 
     protected $table = 'food_units';
 

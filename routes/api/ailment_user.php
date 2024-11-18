@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AilmentUserController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('ailments-user', [AilmentUserController::class, 'index'])->name('ailments-user.index');
 Route::post('ailments-user', [AilmentUserController::class, 'store'])->name('ailments-user.store');

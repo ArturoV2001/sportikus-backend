@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BiometricData extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
     use BiometricDataRelationships;
     use BiometricDataScopes;
+    use HasFactory;
+    use SoftDeletes;
 
     protected $table = 'biometric_data';
 

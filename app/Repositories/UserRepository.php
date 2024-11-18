@@ -19,9 +19,10 @@ class UserRepository extends IndexRepository
         return User::query()->create($data);
     }
 
-    public function updateUser(array $data, User $user ): User
+    public function updateUser(array $data, User $user): User
     {
         $user->update($data);
+
         return $user;
     }
 }

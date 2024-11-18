@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Muscle extends Model
 {
-    use MuscleScopes;
-    use MuscleRelationships;
     use HasFactory;
+    use MuscleRelationships;
+    use MuscleScopes;
     use SoftDeletes;
 
     protected $table = 'muscles';
@@ -25,5 +25,4 @@ class Muscle extends Model
     {
         return MuscleFactory::new();
     }
-
 }

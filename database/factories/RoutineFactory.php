@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class RoutineFactory extends Factory
 {
     protected $model = Routine::class;
+
     /**
      * Define the model's default state.
      *

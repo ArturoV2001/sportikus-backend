@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         // Tabla 'users'
@@ -83,7 +78,7 @@ return new class extends Migration
             $table->unsignedBigInteger('meal_id');
             $table->unsignedBigInteger('food_id');
             $table->integer('quantity');
-            $table->decimal('calories',5,2);
+            $table->decimal('calories', 5, 2);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -142,8 +137,8 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        // Tabla 'routine_exercises_best_performance'
-        Schema::create('routine_exercises_best_performance', function (Blueprint $table) {
+        // Tabla 'exercises_best_performance'
+        Schema::create('exercises_best_performance', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('routine_exercise_id');
             $table->decimal('weight', 3, 2);
@@ -180,17 +175,12 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('muscular_groups');
         Schema::dropIfExists('muscles');
         Schema::dropIfExists('exercises');
-        Schema::dropIfExists('routine_exercises_best_performance');
+        Schema::dropIfExists('exercises_best_performance');
         Schema::dropIfExists('routine_exercises');
         Schema::dropIfExists('routine');
         Schema::dropIfExists('categories');
@@ -204,5 +194,4 @@ return new class extends Migration
         Schema::dropIfExists('biometric_data');
         Schema::dropIfExists('users');
     }
-}
-;
+};

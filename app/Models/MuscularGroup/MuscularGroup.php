@@ -10,9 +10,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MuscularGroup extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     use MuscularGroupRelationships;
     use MuscularGroupScopes;
+    use SoftDeletes;
 
     protected $table = 'muscular_groups';
 
@@ -20,6 +20,7 @@ class MuscularGroup extends Model
         'name',
         'description',
     ];
+
     protected static function newFactory()
     {
         return MuscularGroupFactory::new();

@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Exercise extends Model
 {
-    use ExerciseScopes;
     use ExerciseRelationships;
+    use ExerciseScopes;
     use HasFactory;
     use SoftDeletes;
 
