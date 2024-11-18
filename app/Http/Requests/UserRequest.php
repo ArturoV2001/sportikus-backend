@@ -23,7 +23,7 @@ class UserRequest extends FormRequest
     {
         return [
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8',
+            'password' => 'required|string',
             'name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
             'weight' => 'nullable|numeric|between:0,999.99',
