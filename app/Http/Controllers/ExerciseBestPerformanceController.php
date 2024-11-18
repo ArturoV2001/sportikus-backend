@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FoodRequest;
-use App\Models\Food\Food;
-use App\Repositories\FoodRepository;
+use App\Http\Requests\ExerciseBestPerformanceRequest;
+use App\Models\ExerciseBestPerformance\ExerciseBestPerformance;
+use App\Repositories\ExerciseBestPerformanceRepository;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-class FoodController extends Controller
+class ExerciseBestPerformanceController extends Controller
 {
-    protected FoodRepository $repository;
+    protected ExerciseBestPerformanceRepository $repository;
 
-    public function __construct(FoodRepository $repository)
+    public function __construct(ExerciseBestPerformanceRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -37,10 +37,10 @@ class FoodController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(FoodRequest $request): JsonResponse
+    public function store(ExerciseBestPerformanceRequest $request): JsonResponse
     {
         return response()->json(
-            $this->repository->createFood($request->validated()),
+            $this->repository->createExerciseBestPerformance($request->validated()),
             Response::HTTP_CREATED
         );
     }
@@ -48,29 +48,29 @@ class FoodController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Food $food): JsonResponse
+    public function show(ExerciseBestPerformance $exerciseBestPerformance): JsonResponse
     {
         $columns = request()->has('columns') ? json_decode(request('columns')) : ['id', 'email'];
 
-        return response()->json($food->only($columns));
+        return response()->json($exerciseBestPerformance->only($columns));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(FoodRequest $request, Food $food): JsonResponse
+    public function update(ExerciseBestPerformanceRequest $request, ExerciseBestPerformance $exerciseBestPerformance): JsonResponse
     {
         return response()->json(
-            $this->repository->updateFood($request->validated(), $food)
+            $this->repository->updateExerciseBestPerformance($request->validated(), $exerciseBestPerformance)
         );
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Food $food): JsonResponse
+    public function destroy(ExerciseBestPerformance $exerciseBestPerformance): JsonResponse
     {
-        $food->delete();
+        $exerciseBestPerformance->delete();
 
         return response()->json(
             [], 204

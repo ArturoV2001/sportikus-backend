@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\User\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -40,5 +41,16 @@ class AuthController extends Controller
         $accessToken = $user->createToken('authToken')->accessToken;
 
         return response()->json(['user' => $user, 'access_token' => $accessToken], 201);
+    }
+
+    public function logout(Request $request)
+    {
+        if (Auth::guard('api')->check()) {
+            $request->user()->token()->revoke();
+
+            return response()->json(['message' => 'Successfully logged out'], 200);
+        }
+
+        return response()->json(['message' => 'Unauthorized'], 401);
     }
 }

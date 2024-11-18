@@ -10,6 +10,7 @@ Route::get('user', function (Request $request) {
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+Route::middleware('auth:api')->post('logout', [AuthController::class, 'logout']);
 
 include __DIR__ . '/api/ailment.php';
 include __DIR__ . '/api/ailment_user.php';

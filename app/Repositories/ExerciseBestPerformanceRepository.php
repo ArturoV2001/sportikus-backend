@@ -14,12 +14,12 @@ class ExerciseBestPerformanceRepository extends IndexRepository
         $this->model = $exerciseBestPerformance;
     }
 
-    public function createRoutineExerciseBestPerformance(array $data): ExerciseBestPerformance
+    public function createExerciseBestPerformance(array $data): ExerciseBestPerformance
     {
         return ExerciseBestPerformance::query()->create($data);
     }
 
-    public function updateRoutineExerciseBestPerformance(array $data, ExerciseBestPerformance $exerciseBestPerformance): ExerciseBestPerformance
+    public function updateExerciseBestPerformance(array $data, ExerciseBestPerformance $exerciseBestPerformance): ExerciseBestPerformance
     {
         $exerciseBestPerformance->update($data);
 
