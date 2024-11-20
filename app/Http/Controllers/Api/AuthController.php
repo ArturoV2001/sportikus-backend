@@ -8,6 +8,7 @@ use App\Models\User\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Passport\Token;
 
 class AuthController extends Controller
 {
@@ -53,4 +54,27 @@ class AuthController extends Controller
 
         return response()->json(['message' => 'Unauthorized'], 401);
     }
+
+    public function checkSession(Request $request)
+    {
+        // Obtener el token desde el encabezado
+        $token = $request->bearerToken();
+
+        // Verificar si el token es válido
+        if (!$token || !Auth::guard('api')->check()) {
+            return response()->json([
+                'message' => 'No active session or invalid token',
+            ], 401);
+        }
+
+        // Obtener el usuario autenticado
+        $user = Auth::guard('api')->user();
+
+        return response()->json([
+            'message' => 'User session is active',
+            'user' => $user,
+            'authenticated' => true
+        ], 200);
+    }
+
 }
