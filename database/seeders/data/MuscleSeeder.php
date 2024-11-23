@@ -3,8 +3,8 @@
 namespace Database\Seeders\data;
 
 use App\Models\Muscle\Muscle;
-use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 
 class MuscleSeeder extends Seeder
 {

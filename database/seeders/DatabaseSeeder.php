@@ -16,14 +16,15 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void {
+    public function run(): void
+    {
         //Run the seeders
         $this->call([
-           UserTypeSeeder::class,
-           MuscleSeeder::class,
-           MuscularGroupSeeder::class,
-           AilmentSeeder::class,
-           ExerciseSeeder::class,
+            UserTypeSeeder::class,
+            MuscleSeeder::class,
+            MuscularGroupSeeder::class,
+            AilmentSeeder::class,
+            ExerciseSeeder::class,
         ]);
 
         //Create admin user

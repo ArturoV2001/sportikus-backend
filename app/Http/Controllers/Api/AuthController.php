@@ -61,7 +61,7 @@ class AuthController extends Controller
         $token = $request->bearerToken();
 
         // Verificar si el token es válido
-        if (!$token || !Auth::guard('api')->check()) {
+        if (! $token || ! Auth::guard('api')->check()) {
             return response()->json([
                 'message' => 'No active session or invalid token',
             ], 401);
@@ -73,8 +73,7 @@ class AuthController extends Controller
         return response()->json([
             'message' => 'User session is active',
             'user' => $user,
-            'authenticated' => true
+            'authenticated' => true,
         ], 200);
     }
-
 }

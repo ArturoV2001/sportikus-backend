@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 trait UserTypeRelationships
 {
-    public function user():HasMany
+    public function user(): HasMany
     {
         return $this->hasMany(User::class);
     }

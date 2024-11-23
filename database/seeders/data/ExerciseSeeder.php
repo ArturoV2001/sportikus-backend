@@ -3,7 +3,6 @@
 namespace Database\Seeders\data;
 
 use App\Models\Exercise\Exercise;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ExerciseSeeder extends Seeder
