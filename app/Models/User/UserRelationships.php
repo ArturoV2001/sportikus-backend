@@ -36,4 +36,9 @@ trait UserRelationships
     {
         return $this->belongsTo(Routine::class);
     }
+
+    public function userType(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
