@@ -12,7 +12,6 @@ class Muscle extends Model
     use HasFactory;
     use MuscleRelationships;
     use MuscleScopes;
-    use SoftDeletes;
 
     protected $table = 'muscles';
 

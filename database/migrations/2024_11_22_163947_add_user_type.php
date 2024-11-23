@@ -17,11 +17,6 @@ return new class extends Migration
             $table->string('name');
             $table->timestamps();
         });
-
-        DB::table('user_types')->insert([
-            ['name' => 'admin', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'user', 'created_at' => now(), 'updated_at' => now()],
-        ]);
     }
 
     /**

@@ -12,7 +12,6 @@ class MuscularGroup extends Model
     use HasFactory;
     use MuscularGroupRelationships;
     use MuscularGroupScopes;
-    use SoftDeletes;
 
     protected $table = 'muscular_groups';
 
