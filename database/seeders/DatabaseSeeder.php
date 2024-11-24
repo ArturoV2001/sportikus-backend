@@ -8,6 +8,7 @@ use Database\Seeders\data\AilmentSeeder;
 use Database\Seeders\data\ExerciseSeeder;
 use Database\Seeders\data\MuscleSeeder;
 use Database\Seeders\data\MuscularGroupSeeder;
+use Database\Seeders\data\OAuthSeeder;
 use Database\Seeders\data\UserTypeSeeder;
 use Illuminate\Database\Seeder;
 
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
             MuscularGroupSeeder::class,
             AilmentSeeder::class,
             ExerciseSeeder::class,
+            OAuthSeeder::class,
         ]);
 
         //Create admin user
