@@ -2,10 +2,8 @@
 
 namespace Database\Seeders\data;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use OAuth;
 
 class OAuthSeeder extends Seeder
 {

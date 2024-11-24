@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
-use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
