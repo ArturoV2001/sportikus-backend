@@ -14,13 +14,13 @@ class UserTypeSeeder extends Seeder
     {
         UserType::insert(
             [
-                'id' => 1,
                 'name' => 'admin',
             ],
+        );
+        UserType::insert(
             [
-                'id' => 2,
                 'name' => 'user',
-            ]
+            ],
         );
     }
 }

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
 use App\Models\User\User;
+use App\Rules\ClientSecretValid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -12,15 +12,26 @@ use Laravel\Passport\Token;
 
 class AuthController extends Controller
 {
-    public function register(UserRequest $request)
+    public function register(Request $request)
     {
+        $register = $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string',
+            'name' => 'required|string|max:100',
+            'last_name' => 'required|string|max:100',
+            'weight' => 'nullable|numeric|between:0,999.99',
+            'birthdate' => 'required|date',
+            'grant_type' => 'required',
+            'client_id' => 'required',
+            'client_secret' => ['required', new ClientSecretValid($request['client_id'], $request['grant_type'])],
+        ]);
         $user = User::create([
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            'name' => $request['name'],
-            'last_name' => $request['last_name'],
-            'weight' => $request['weight'],
-            'birthdate' => $request['birthdate'],
+            'email' => $register['email'],
+            'password' => Hash::make($register['password']),
+            'name' => $register['name'],
+            'last_name' => $register['last_name'],
+            'weight' => $register['weight'],
+            'birthdate' => $register['birthdate'],
         ]);
 
         $accessToken = $user->createToken('authToken')->accessToken;
@@ -31,11 +42,16 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $login = $request->validate([
+            'grant_type' => 'required',
+            'client_id' => 'required',
+            'client_secret' => ['required', new ClientSecretValid($request['client_id'], $request['grant_type'])],
             'email' => 'required|string|email|max:255',
             'password' => 'required|string',
         ]);
-
-        if (! auth()->attempt($login)) {
+        if (! auth()->attempt([
+            'email' => $login['email'],
+            'password' => $login['password'],
+        ])) {
             return response()->json(['message' => 'Invalid credentials'], 401);
         }
         $user = auth()->user();
