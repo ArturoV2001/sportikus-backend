@@ -23,13 +23,13 @@ class IndexRepository
             'first' => $params['first'] ?? false,
             'rows' => $params['rows'] ?? false,
             'orderBy' => $params['orderBy'] ?? 'updated_at',
-            'ascending' => $params['ascending'] ?? 0,
+            'sortOrder' => $params['sortOrder'] ?? 0,
             'filters' => $filters = json_decode($params['filters'] ?? '{}', true),
             'columns' => isset($params['columns']) ? json_decode($params['columns']) : array_keys($filters),
         ];
     }
 
-    public function getModelQuery($first, $rows, $orderBy, $ascending, $filters, $columns = null)
+    public function getModelQuery($first, $rows, $orderBy, $sortOrder, $filters, $columns = null)
     {
         $query = $this->model::query()->selectRaw($this->model->getTable() . '.*');
 
@@ -39,7 +39,7 @@ class IndexRepository
             }
         }
 
-        $order = $ascending === '1' ? 'ASC' : 'DESC';
+        $order = $sortOrder === '1' ? 'ASC' : 'DESC';
         $query->orderByColumn($orderBy, $order);
 
         return $query;
@@ -48,11 +48,11 @@ class IndexRepository
     /**
      * Display a listing of the resource.
      */
-    public function index($first, $rows, $orderBy, $ascending, $filters, $columns)
+    public function index($first, $rows, $orderBy, $sortOrder, $filters, $columns)
     {
         array_push($columns, 'id');
 
-        $query = $this->getModelQuery($first, $rows, $orderBy, $ascending, $filters);
+        $query = $this->getModelQuery($first, $rows, $orderBy, $sortOrder, $filters);
         if (method_exists($this->model, 'scopeWithAliasScopes')) {
             $query->withAliasScopes($columns);
         }

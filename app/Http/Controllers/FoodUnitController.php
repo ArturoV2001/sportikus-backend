@@ -25,12 +25,12 @@ class FoodUnitController extends Controller
         $first = request('first', false);
         $rows = request('rows', false);
         $orderBy = request('sortField', 'name');
-        $ascending = request('sortOrder', 1);
+        $sortOrder = request('sortOrder', '1');
         $filters = json_decode(request('filters', '{}'), true);
         $columns = request()->has('columns') ? json_decode(request('columns')) : ['id'];
 
         return response()->json(
-            $this->repository->index($first, $rows, $orderBy, $ascending, $filters, $columns)
+            $this->repository->index($first, $rows, $orderBy, $sortOrder, $filters, $columns)
         );
     }
 
