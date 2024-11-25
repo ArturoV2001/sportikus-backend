@@ -2,6 +2,8 @@
 
 namespace App\Models\MealFood;
 
+use App\Models\Food\Food;
+use App\Models\Meal\Meal;
 use Illuminate\Database\Eloquent\Builder;
 
 trait MealFoodScopes
@@ -28,5 +30,21 @@ trait MealFoodScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
+    }
+
+    public function withAliasScopeMealName(Builder $query): void
+    {
+        $query->addSelect([
+            'meal_name' => Meal::query()->select('name')
+                ->whereColumn('meals.id', 'meal_foods.meal_id'),
+        ]);
+    }
+
+    public function scopeWithAliasScopeFoodName(Builder $query): void
+    {
+        $query->addSelect([
+            'food_name' => Food::query()->select('name')
+                ->whereColumn('foods.id', 'meal_foods.food_id'),
+        ]);
     }
 }

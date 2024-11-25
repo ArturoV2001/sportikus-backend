@@ -2,6 +2,7 @@
 
 namespace App\Models\BiometricData;
 
+use App\Models\User\User;
 use Illuminate\Database\Eloquent\Builder;
 
 trait BiometricDataScopes
@@ -28,5 +29,13 @@ trait BiometricDataScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
+    }
+
+    public function scopeWithAliasUserName(Builder $query): void
+    {
+        $query->addSelect([
+            'user_name' => User::query()->selectRaw("CONCAT(name,' ',last_name)")
+                ->whereColumn('biometric_data.user_id', 'users.id'),
+        ]);
     }
 }

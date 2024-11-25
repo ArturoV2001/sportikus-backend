@@ -2,6 +2,7 @@
 
 namespace App\Models\Meal;
 
+use App\Models\User\User;
 use Illuminate\Database\Eloquent\Builder;
 
 trait MealScopes
@@ -28,5 +29,13 @@ trait MealScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
+    }
+
+    public function scopeWithAliasUserName(Builder $query): void
+    {
+        $query->addSelect([
+            'user_name' => User::query()->selectRaw("CONCAT(name,' ',last_name)")
+                ->whereColumn('meals.user_id', 'users.id'),
+        ]);
     }
 }

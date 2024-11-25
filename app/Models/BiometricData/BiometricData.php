@@ -2,6 +2,7 @@
 
 namespace App\Models\BiometricData;
 
+use App\Models\Traits\WithAliasScopes;
 use Database\Factories\BiometricDataFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,7 @@ class BiometricData extends Model
     use BiometricDataScopes;
     use HasFactory;
     use SoftDeletes;
+    use WithAliasScopes;
 
     protected $table = 'biometric_data';
 

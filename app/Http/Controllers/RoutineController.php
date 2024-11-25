@@ -24,7 +24,7 @@ class RoutineController extends Controller
     {
         $first = request('first', false);
         $rows = request('rows', false);
-        $orderBy = request('sortField', 'name');
+        $orderBy = request('sortField', 'created_at');
         $ascending = request('sortOrder', 1);
         $filters = json_decode(request('filters', '{}'), true);
         $columns = request()->has('columns') ? json_decode(request('columns')) : ['id'];

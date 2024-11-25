@@ -2,6 +2,7 @@
 
 namespace App\Models\AilmentUser;
 
+use App\Models\Traits\WithAliasScopes;
 use Database\Factories\AilmentUserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,7 @@ class AilmentUser extends Model
     use AilmentUserScopes;
     use HasFactory;
     use SoftDeletes;
+    use WithAliasScopes;
 
     protected $table = 'ailment_user';
 

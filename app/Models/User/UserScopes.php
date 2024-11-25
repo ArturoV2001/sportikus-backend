@@ -2,6 +2,7 @@
 
 namespace App\Models\User;
 
+use App\Models\UserType\UserType;
 use Illuminate\Database\Eloquent\Builder;
 
 trait UserScopes
@@ -28,5 +29,13 @@ trait UserScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
+    }
+
+    public function scopeWithAliasUserName(Builder $query): void
+    {
+        $query->addSelect([
+            'user_name' => UserType::query()->selectRaw('name')
+                ->whereColumn('users.user_type_id', 'user_types.id'),
+        ]);
     }
 }

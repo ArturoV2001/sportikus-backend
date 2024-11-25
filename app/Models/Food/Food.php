@@ -2,6 +2,7 @@
 
 namespace App\Models\Food;
 
+use App\Models\Traits\WithAliasScopes;
 use Database\Factories\FoodFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,7 @@ class Food extends Model
     use FoodScopes;
     use HasFactory;
     use SoftDeletes;
+    use WithAliasScopes;
 
     protected $table = 'foods';
 

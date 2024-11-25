@@ -2,6 +2,8 @@
 
 namespace App\Models\AilmentUser;
 
+use App\Models\Ailment\Ailment;
+use App\Models\User\User;
 use Illuminate\Database\Eloquent\Builder;
 
 trait AilmentUserScopes
@@ -28,5 +30,21 @@ trait AilmentUserScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
+    }
+
+    public function scopeWithAliasUserName(Builder $query): void
+    {
+        $query->addSelect([
+            'user_name' => User::query()->selectRaw("CONCAT(name,' ',last_name)")
+                ->whereColumn('ailment_user.user_id', 'users.id'),
+        ]);
+    }
+
+    public function scopeWithAliasAilmentName(Builder $query): void
+    {
+        $query->addSelect([
+            'ailment_name' => Ailment::query()->selectRaw('name')
+                ->whereColumn('ailment_user.ailment_id', 'ailments.id'),
+        ]);
     }
 }

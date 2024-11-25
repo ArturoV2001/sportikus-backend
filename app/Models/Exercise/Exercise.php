@@ -2,6 +2,7 @@
 
 namespace App\Models\Exercise;
 
+use App\Models\Traits\WithAliasScopes;
 use Database\Factories\ExerciseFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,7 @@ class Exercise extends Model
     use ExerciseScopes;
     use HasFactory;
     use SoftDeletes;
+    use WithAliasScopes;
 
     protected $table = 'exercises';
 

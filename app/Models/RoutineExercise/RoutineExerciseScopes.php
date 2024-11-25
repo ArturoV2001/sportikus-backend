@@ -2,6 +2,7 @@
 
 namespace App\Models\RoutineExercise;
 
+use App\Models\Exercise\Exercise;
 use Illuminate\Database\Eloquent\Builder;
 
 trait RoutineExerciseScopes
@@ -28,5 +29,13 @@ trait RoutineExerciseScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
+    }
+
+    public function scopeWithAliasExerciseName(Builder $query): void
+    {
+        $query->addSelect([
+            'exercise_name' => Exercise::query()->select('name')
+                ->whereColumn('routine_exercises.exercise_id', 'exercises.id'),
+        ]);
     }
 }

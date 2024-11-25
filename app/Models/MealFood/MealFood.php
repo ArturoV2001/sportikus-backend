@@ -2,6 +2,7 @@
 
 namespace App\Models\MealFood;
 
+use App\Models\Traits\WithAliasScopes;
 use Database\Factories\MealFoodFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,7 @@ class MealFood extends Model
     use MealFoodRelationships;
     use MealFoodScopes;
     use SoftDeletes;
+    use WithAliasScopes;
 
     protected $table = 'meal_foods';
 

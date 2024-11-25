@@ -2,6 +2,7 @@
 
 namespace App\Models\Exercise;
 
+use App\Models\Muscle\Muscle;
 use Illuminate\Database\Eloquent\Builder;
 
 trait ExerciseScopes
@@ -28,5 +29,13 @@ trait ExerciseScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
+    }
+
+    public function scopeWithAliasMuscleName(Builder $query): void
+    {
+        $query->addSelect([
+            'muscle_name' => Muscle::query()->select('name')
+                ->whereColumn('exercises.muscle_id', '=', 'muscles.id'),
+        ]);
     }
 }

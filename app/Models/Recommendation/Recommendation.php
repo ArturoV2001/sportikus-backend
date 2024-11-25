@@ -2,6 +2,7 @@
 
 namespace App\Models\Recommendation;
 
+use App\Models\Traits\WithAliasScopes;
 use Database\Factories\RecommendationFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +14,7 @@ class Recommendation extends Model
     use RecommendationRelationships;
     use RecommendationScopes;
     use SoftDeletes;
+    use WithAliasScopes;
 
     protected $table = 'recommendations';
 

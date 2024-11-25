@@ -2,6 +2,7 @@
 
 namespace App\Models\Routine;
 
+use App\Models\User\User;
 use Illuminate\Database\Eloquent\Builder;
 
 trait RoutineScopes
@@ -28,5 +29,13 @@ trait RoutineScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
+    }
+
+    public function scopeWithAliasUserName(Builder $query): void
+    {
+        $query->addSelect([
+            'user_name' => User::query()->selectRaw("CONCAT(name,' ',last_name)")
+                ->whereColumn('routines.user_id', 'users.id'),
+        ]);
     }
 }
