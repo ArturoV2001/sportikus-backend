@@ -48,13 +48,13 @@ class AuthController extends Controller
             'email' => 'required|string|email|max:255',
             'password' => 'required|string',
         ]);
-        if (! auth()->attempt([
+        if (! Auth::guard('web')->attempt([
             'email' => $login['email'],
             'password' => $login['password'],
         ])) {
             return response()->json(['message' => 'Invalid credentials'], 401);
         }
-        $user = auth()->user();
+        $user = Auth::guard('web')->user();
         $accessToken = $user->createToken('authToken')->accessToken;
 
         return response()->json(['user' => $user, 'access_token' => $accessToken], 201);
