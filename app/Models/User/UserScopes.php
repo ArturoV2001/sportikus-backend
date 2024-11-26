@@ -2,6 +2,7 @@
 
 namespace App\Models\User;
 
+use App\Models\Gender\Gender;
 use App\Models\UserType\UserType;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -34,8 +35,16 @@ trait UserScopes
     public function scopeWithAliasUserName(Builder $query): void
     {
         $query->addSelect([
-            'user_name' => UserType::query()->selectRaw('name')
+            'user_name' => UserType::query()->select('name')
                 ->whereColumn('users.user_type_id', 'user_types.id'),
+        ]);
+    }
+
+    public function scopeWithAliasGender(Builder $query): void
+    {
+        $query->addSelect([
+            'gender' => Gender::query()->select('name')
+                ->whereColumn('users.gender_id', 'genders.id'),
         ]);
     }
 }
