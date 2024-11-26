@@ -28,6 +28,7 @@ class User extends Authenticatable
         'weight',
         'birthdate',
         'user_type_id',
+        'gender_id',
     ];
 
     protected $hidden = [
