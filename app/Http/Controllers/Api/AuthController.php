@@ -21,6 +21,7 @@ class AuthController extends Controller
             'last_name' => 'required|string|max:100',
             'weight' => 'nullable|numeric|between:0,999.99',
             'birthdate' => 'required|date',
+            'gender_id' => 'required|numeric|between:1,2',
             'grant_type' => 'required',
             'client_id' => 'required',
             'client_secret' => ['required', new ClientSecretValid($request['client_id'], $request['grant_type'])],

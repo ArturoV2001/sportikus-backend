@@ -28,6 +28,8 @@ class UserRequest extends FormRequest
             'last_name' => 'required|string|max:100',
             'weight' => 'nullable|numeric|between:0,999.99',
             'birthdate' => 'required|date',
+            'user_type_id' => 'required|numeric|exists:user_types,id',
+            'gender_id' => 'required|numeric|exists:genders,id',
         ];
     }
 }
