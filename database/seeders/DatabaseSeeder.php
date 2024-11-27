@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
         //Run the seeders
         $this->call([
             UserTypeSeeder::class,
-            MuscleSeeder::class,
             MuscularGroupSeeder::class,
+            MuscleSeeder::class,
             AilmentSeeder::class,
             ExerciseSeeder::class,
             OAuthSeeder::class,

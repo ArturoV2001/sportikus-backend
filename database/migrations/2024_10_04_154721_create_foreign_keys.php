@@ -58,7 +58,6 @@ return new class extends Migration
 
         // Llaves foráneas de la tabla 'exercises'
         Schema::table('exercises', function (Blueprint $table) {
-            $table->foreign('muscular_group_id')->references('id')->on('muscular_groups')->onDelete('cascade');
             $table->foreign('muscle_id')->references('id')->on('muscles')->onDelete('cascade');
         });
     }
@@ -103,7 +102,7 @@ return new class extends Migration
         });
 
         Schema::table('exercises', function (Blueprint $table) {
-            $table->dropForeign(['muscular_group_id', 'muscle_id']);
+            $table->dropForeign(['muscle_id']);
         });
     }
 };

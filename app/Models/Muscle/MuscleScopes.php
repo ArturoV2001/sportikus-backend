@@ -2,6 +2,7 @@
 
 namespace App\Models\Muscle;
 
+use App\Models\MuscularGroup\MuscularGroup;
 use Illuminate\Database\Eloquent\Builder;
 
 trait MuscleScopes
@@ -28,5 +29,13 @@ trait MuscleScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
+    }
+
+    public function withAliasScopeMuscularGroupName(Builder $query): void
+    {
+        $query->addSelect([
+            'muscular_group_name' => MuscularGroup::select('muscular_group_name')
+                ->whereColumn('muscle.muscular_group_id', 'muscular_groups.id'),
+        ]);
     }
 }

@@ -17,6 +17,7 @@ class Muscle extends Model
     protected $fillable = [
         'name',
         'description',
+        'muscular_group_id',
     ];
 
     protected static function newFactory()

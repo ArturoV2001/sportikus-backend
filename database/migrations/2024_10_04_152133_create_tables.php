@@ -152,7 +152,6 @@ return new class extends Migration
             $table->id();
             $table->string('name', 150);
             $table->string('description', 300)->nullable();
-            $table->unsignedBigInteger('muscular_group_id');
             $table->unsignedBigInteger('muscle_id');
             $table->timestamps();
             $table->softDeletes();

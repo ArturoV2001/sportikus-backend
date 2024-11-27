@@ -21,7 +21,6 @@ class Exercise extends Model
     protected $fillable = [
         'name',
         'description',
-        'muscular_group_id',
         'muscle_id',
     ];
 

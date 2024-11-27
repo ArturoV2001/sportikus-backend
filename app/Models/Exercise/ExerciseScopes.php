@@ -3,7 +3,6 @@
 namespace App\Models\Exercise;
 
 use App\Models\Muscle\Muscle;
-use App\Models\MuscularGroup\MuscularGroup;
 use Illuminate\Database\Eloquent\Builder;
 
 trait ExerciseScopes
@@ -37,14 +36,6 @@ trait ExerciseScopes
         $query->addSelect([
             'muscle_name' => Muscle::query()->select('name')
                 ->whereColumn('exercises.muscle_id', '=', 'muscles.id'),
-        ]);
-    }
-
-    public function scopeWithAliasMuscularGroupName(Builder $query): void
-    {
-        $query->addSelect([
-            'muscular_group_name' => MuscularGroup::query()->select('name')
-                ->whereColumn('exercises.muscular_group_id', '=', 'muscular_groups.id'),
         ]);
     }
 }
