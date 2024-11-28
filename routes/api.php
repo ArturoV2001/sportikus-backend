@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Route;
 // Rutas de autenticación
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
-Route::middleware('auth:api')->get('logout', [AuthController::class, 'logout']);
 
 // Rutas protegidas
 Route::middleware(['auth:api'])->group(function () {
+    Route::middleware('auth:api')->get('logout', [AuthController::class, 'logout']);
     Route::get('check-session', [AuthController::class, 'checkSession'])->name('auth.check-session');
 
     // Incluir rutas protegidas de los archivos
