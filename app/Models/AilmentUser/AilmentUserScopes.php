@@ -12,6 +12,9 @@ trait AilmentUserScopes
     {
         switch ($column) {
             default:
+                if ($this->hasAliasScope($column)) {
+                    $query->having($column, 'LIKE', $value);
+                }
                 if ($this->hasGetMutator($column)) {
                     return;
                 }

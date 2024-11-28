@@ -11,6 +11,11 @@ trait MealScopes
     {
         switch ($column) {
             default:
+                if ($this->hasAliasScope($column)) {
+                    $query->having($column, 'LIKE', $value);
+
+                    return;
+                }
                 if ($this->hasGetMutator($column)) {
                     return;
                 }

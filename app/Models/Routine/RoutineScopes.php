@@ -2,7 +2,6 @@
 
 namespace App\Models\Routine;
 
-use App\Models\User\User;
 use Illuminate\Database\Eloquent\Builder;
 
 trait RoutineScopes
@@ -11,6 +10,11 @@ trait RoutineScopes
     {
         switch ($column) {
             default:
+                if ($this->hasAliasScope($column)) {
+                    $query->having($column, 'LIKE', $value);
+
+                    return;
+                }
                 if ($this->hasGetMutator($column)) {
                     return;
                 }
@@ -29,13 +33,5 @@ trait RoutineScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
-    }
-
-    public function scopeWithAliasUserName(Builder $query): void
-    {
-        $query->addSelect([
-            'user_name' => User::query()->selectRaw("CONCAT(name,' ',last_name)")
-                ->whereColumn('routines.user_id', 'users.id'),
-        ]);
     }
 }

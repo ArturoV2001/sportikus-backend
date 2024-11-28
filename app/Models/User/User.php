@@ -2,6 +2,7 @@
 
 namespace App\Models\User;
 
+use App\Models\Traits\WithAliasScopes;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -17,6 +18,7 @@ class User extends Authenticatable
     use SoftDeletes;
     use UserRelationships;
     use UserScopes;
+    use WithAliasScopes;
 
     protected $table = 'users';
 
