@@ -37,10 +37,10 @@ trait UserScopes
         }
     }
 
-    public function scopeWithAliasUserName(Builder $query): void
+    public function scopeWithAliasUserTypeName(Builder $query): void
     {
         $query->addSelect([
-            'user_name' => UserType::query()->select('name')
+            'user_type_name' => UserType::query()->select('name')
                 ->whereColumn('users.user_type_id', 'user_types.id'),
         ]);
     }
