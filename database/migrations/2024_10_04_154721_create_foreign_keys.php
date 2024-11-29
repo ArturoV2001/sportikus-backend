@@ -41,13 +41,13 @@ return new class extends Migration
         });
 
         // Llaves foráneas de la tabla 'routine'
-        Schema::table('routine', function (Blueprint $table) {
+        Schema::table('routines', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         // Llaves foráneas de la tabla 'routine_exercises'
         Schema::table('routine_exercises', function (Blueprint $table) {
-            $table->foreign('routine_id')->references('id')->on('routine')->onDelete('cascade');
+            $table->foreign('routine_id')->references('id')->on('routines')->onDelete('cascade');
             $table->foreign('exercise_id')->references('id')->on('exercises')->onDelete('cascade');
         });
 

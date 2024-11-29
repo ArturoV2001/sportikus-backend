@@ -21,7 +21,8 @@ class Routine extends Model
     protected $fillable = [
         'frequency',
         'duration',
-        'user_id',
+        'days',
+        'ailment_id',
     ];
 
     protected static function newFactory()

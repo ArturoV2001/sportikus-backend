@@ -19,7 +19,6 @@ class Recommendation extends Model
     protected $table = 'recommendations';
 
     protected $fillable = [
-        'user_id',
         'recommendation',
     ];
 

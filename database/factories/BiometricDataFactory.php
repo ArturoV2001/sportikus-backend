@@ -21,13 +21,16 @@ class BiometricDataFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::query()->exists() ? User::query()->inRandomOrder()->first()->id : User::factory(), // Relación con User
-            'heart_frequency' => $this->faker->numberBetween(60, 100),
-            'pressure' => $this->faker->numberBetween(90, 140),
-            'calories' => $this->faker->numberBetween(1500, 3000),
-            'sleep_quality' => $this->faker->randomFloat(2, 1, 10),
-            'sleep_minutes' => $this->faker->numberBetween(300, 600),
-            'steps' => $this->faker->numberBetween(1000, 10000),
+            'user_id' => optional(User::query()->inRandomOrder()->first())->id,
+            'heart_frequency' => $this->faker->numberBetween(50, 180),
+            'steps' => $this->faker->numberBetween(0, 30000),
+            'distance' => $this->faker->randomFloat(2, 0, 99.99),
+            'oxygenation' => $this->faker->numberBetween(90, 100),
+            'sleep_quantity' => $this->faker->numberBetween(0, 720),
+            'sleep_quality_awake' => $this->faker->numberBetween(0, 60),
+            'sleep_quality_rem' => $this->faker->numberBetween(0, 120),
+            'sleep_quality_core' => $this->faker->numberBetween(0, 240),
+            'sleep_quality_deep' => $this->faker->numberBetween(0, 120),
             'created_at' => now(),
             'updated_at' => now(),
         ];

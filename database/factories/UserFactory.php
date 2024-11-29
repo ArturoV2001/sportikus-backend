@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Routine\Routine;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 
@@ -31,6 +32,7 @@ class UserFactory extends Factory
             'birthdate' => $this->faker->date(),
             'created_at' => now(),
             'updated_at' => now(),
+            'routine_id' => optional(Routine::query()->inRandomOrder()->first())->id,
         ];
     }
 }

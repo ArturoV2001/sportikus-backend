@@ -24,7 +24,8 @@ class RoutineRequest extends FormRequest
         return [
             'frequency' => 'nullable|integer',
             'duration' => 'nullable|integer',
-            'user_id' => 'required|exists:users,id',
+            'ailment_id' => 'nullable|numeric|exists:ailments,id',
+            'days' => 'nullable|numeric|between:2,6',
         ];
     }
 }

@@ -21,16 +21,18 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        // Tabla 'biometric_data'
         Schema::create('biometric_data', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->integer('heart_frequency')->nullable();
-            $table->integer('pressure')->nullable();
-            $table->integer('calories')->nullable();
-            $table->decimal('sleep_quality', 3, 2)->nullable();
-            $table->integer('sleep_minutes')->nullable();
             $table->integer('steps')->nullable();
+            $table->decimal('distance', 7, 2)->nullable();
+            $table->integer('oxygenation')->nullable();
+            $table->integer('sleep_quantity')->nullable();
+            $table->integer('sleep_quality_awake')->nullable();
+            $table->integer('sleep_quality_rem')->nullable();
+            $table->integer('sleep_quality_core')->nullable();
+            $table->integer('sleep_quality_deep')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -116,7 +118,7 @@ return new class extends Migration
         });
 
         // Tabla 'routine'
-        Schema::create('routine', function (Blueprint $table) {
+        Schema::create('routines', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('frequency')->nullable();
             $table->integer('duration')->nullable();

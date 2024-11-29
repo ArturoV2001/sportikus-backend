@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Ailment\Ailment;
 use App\Models\Routine\Routine;
-use App\Models\User\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -23,9 +23,8 @@ class RoutineFactory extends Factory
         return [
             'frequency' => $this->faker->numberBetween(1, 7),
             'duration' => $this->faker->numberBetween(15, 90),
-            'user_id' => User::query()->exists() ? User::query()->inRandomOrder()->first()->id : User::factory(),
-            'created_at' => now(),
-            'updated_at' => now(),
+            'ailment_id' => optional(Ailment::query()->inRandomOrder()->first())->id,
+            'days' => $this->faker->numberBetween(2, 6),
         ];
     }
 }

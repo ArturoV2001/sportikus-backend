@@ -22,13 +22,16 @@ class BiometricDataRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => 'required|exists:users,id',
-            'heart_frequency' => 'nullable|integer',
-            'pressure' => 'nullable|integer',
-            'calories' => 'nullable|integer',
-            'sleep_quality' => 'nullable|numeric|between:0,999.99',
-            'sleep_minutes' => 'nullable|integer',
-            'steps' => 'nullable|integer',
+            'user_id' => 'required|numeric|exists:users,id',
+            'heart_frequency' => 'nullable|numeric|min:0',
+            'steps' => 'nullable|numeric|min:0',
+            'distance' => 'nullable|numeric|min:0|max:99999.99',
+            'oxygenation' => 'nullable|numeric|between:0,100',
+            'sleep_quantity' => 'nullable|numeric|min:0',
+            'sleep_quality_awake' => 'nullable|numeric|min:0',
+            'sleep_quality_rem' => 'nullable|numeric|min:0',
+            'sleep_quality_core' => 'nullable|numeric|min:0',
+            'sleep_quality_deep' => 'nullable|numeric|min:0',
         ];
     }
 }

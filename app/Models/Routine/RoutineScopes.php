@@ -2,6 +2,7 @@
 
 namespace App\Models\Routine;
 
+use App\Models\Ailment\Ailment;
 use Illuminate\Database\Eloquent\Builder;
 
 trait RoutineScopes
@@ -33,5 +34,13 @@ trait RoutineScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
+    }
+
+    public function scopeWithAliasAilmentName(Builder $query): void
+    {
+        $query->addSelect([
+            'ailment_name' => Ailment::query()->select('name')
+                ->whereColumn('routines.ailment_id', 'ailments.id'),
+        ]);
     }
 }

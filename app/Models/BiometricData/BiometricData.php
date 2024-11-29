@@ -21,11 +21,14 @@ class BiometricData extends Model
     protected $fillable = [
         'user_id',
         'heart_frequency',
-        'pressure',
-        'calories',
-        'sleep_quality',
-        'sleep_minutes',
         'steps',
+        'distance',
+        'oxygenation',
+        'sleep_quantity',
+        'sleep_quality_awake',
+        'sleep_quality_rem',
+        'sleep_quality_core',
+        'sleep_quality_deep',
     ];
 
     public static function newFactory()
