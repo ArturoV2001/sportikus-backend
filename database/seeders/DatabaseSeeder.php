@@ -9,6 +9,7 @@ use Database\Seeders\data\ExerciseSeeder;
 use Database\Seeders\data\MuscleSeeder;
 use Database\Seeders\data\MuscularGroupSeeder;
 use Database\Seeders\data\OAuthSeeder;
+use Database\Seeders\data\RecommendationsSeeder;
 use Database\Seeders\data\UserTypeSeeder;
 use Illuminate\Database\Seeder;
 
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
             MuscularGroupSeeder::class,
             MuscleSeeder::class,
             AilmentSeeder::class,
+            RecommendationsSeeder::class,
             ExerciseSeeder::class,
             OAuthSeeder::class,
         ]);

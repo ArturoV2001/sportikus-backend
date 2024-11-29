@@ -22,7 +22,7 @@ class BiometricDataRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => 'required|numeric|exists:users,id',
+            'user_id' => 'nullable|numeric|exists:users,id',
             'heart_frequency' => 'nullable|numeric|min:0',
             'steps' => 'nullable|numeric|min:0',
             'distance' => 'nullable|numeric|min:0|max:99999.99',
