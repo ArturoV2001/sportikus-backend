@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class RecommendationUser extends Model
 {
+    use RecommendationUserScopes;
     use SoftDeletes;
 
     protected $table = 'recommendation_users';

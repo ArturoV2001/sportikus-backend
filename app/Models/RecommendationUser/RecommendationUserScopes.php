@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Models\BiometricData;
+namespace App\Models\RecommendationUser;
 
-use App\Models\User\User;
 use Illuminate\Database\Eloquent\Builder;
 
-trait BiometricDataScopes
+trait RecommendationUserScopes
 {
     public function scopeFilterByColumn(Builder $query, string $column, mixed $value): void
     {
@@ -14,11 +13,6 @@ trait BiometricDataScopes
                 $query->where('user_id', '=', $value);
                 break;
             default:
-                if ($this->hasAliasScope($column)) {
-                    $query->having($column, 'LIKE', $value);
-
-                    return;
-                }
                 if ($this->hasGetMutator($column)) {
                     return;
                 }
@@ -37,13 +31,5 @@ trait BiometricDataScopes
                 $query->orderBy($orderBy, $order);
                 break;
         }
-    }
-
-    public function scopeWithAliasUserName(Builder $query): void
-    {
-        $query->addSelect([
-            'user_name' => User::query()->selectRaw("CONCAT(name,' ',last_name)")
-                ->whereColumn('biometric_data.user_id', 'users.id'),
-        ]);
     }
 }

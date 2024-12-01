@@ -25,6 +25,7 @@ Route::middleware(['auth:api'])->group(function () {
     include __DIR__ . '/api/muscle.php';
     include __DIR__ . '/api/muscular_group.php';
     include __DIR__ . '/api/recommendation.php';
+    include __DIR__ . '/api/recommendation_user.php';
     include __DIR__ . '/api/routine.php';
     include __DIR__ . '/api/routine_exercise.php';
     include __DIR__ . '/api/exercise_best_performance.php';

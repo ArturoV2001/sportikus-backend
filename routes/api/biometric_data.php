@@ -9,4 +9,3 @@ Route::get('biometric-data/{biometric_data}', [BiometricDataController::class, '
 Route::put('biometric-data/{biometric_data}', [BiometricDataController::class, 'update'])->name('biometric-data.update');
 Route::delete('biometric-data/{biometric_data}', [BiometricDataController::class, 'destroy'])->name('biometric-data.destroy');
 Route::post('biometric-data-generate-recommendation', [BiometricDataController::class, 'generateRecommendation'])->name('biometric-data.generate-recommendation');
-
