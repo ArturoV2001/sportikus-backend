@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User\User;
 use Database\Seeders\data\AilmentSeeder;
 use Database\Seeders\data\ExerciseSeeder;
@@ -10,6 +9,8 @@ use Database\Seeders\data\MuscleSeeder;
 use Database\Seeders\data\MuscularGroupSeeder;
 use Database\Seeders\data\OAuthSeeder;
 use Database\Seeders\data\RecommendationsSeeder;
+use Database\Seeders\data\RoutineExerciseSeeder;
+use Database\Seeders\data\RoutineSeeder;
 use Database\Seeders\data\UserTypeSeeder;
 use Illuminate\Database\Seeder;
 
@@ -28,6 +29,8 @@ class DatabaseSeeder extends Seeder
             AilmentSeeder::class,
             RecommendationsSeeder::class,
             ExerciseSeeder::class,
+            RoutineSeeder::class,
+            RoutineExerciseSeeder::class,
             OAuthSeeder::class,
         ]);
 
