@@ -6,6 +6,7 @@ use App\Http\Requests\RoutineRequest;
 use App\Models\Routine\Routine;
 use App\Repositories\RoutineRepository;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class RoutineController extends Controller
@@ -75,5 +76,53 @@ class RoutineController extends Controller
         return response()->json(
             [], 204
         );
+    }
+
+    public function assignRoutine(): JsonResponse
+    {
+        $frequency = request('frequency');
+        $ailment_id = request('ailment_id');
+        if (! $frequency || ! is_numeric($frequency) || (! $ailment_id && $ailment_id !== null)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Parámetros inválidos.',
+            ]);
+        }
+        $user = Auth::user();
+        if ($user->routine_id !== null) {
+            return response()->json([
+                'success' => false,
+                'message' => 'El usuario ya tiene una rutina asignada.',
+            ]);
+        }
+        $routine = Routine::query()->where([
+            'frequency' => $frequency,
+            'ailment_id' => $ailment_id,
+        ])->first();
+        if (! $routine) {
+            return response()->json([
+                'success' => false,
+                'message' => 'No se encontró una rutina que coincida con los criterios.',
+            ]);
+        }
+        $user->routine_id = $routine->id;
+        $user->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Rutina asignada correctamente.',
+        ]);
+    }
+
+    public function getRoutineExercises(): JsonResponse
+    {
+        $routine_id = request('routine_id');
+        $routine = Routine::query()->find($routine_id);
+        $routine_exercises = Routine::query()->where('routine_id', $routine_id)->get();
+
+        return response()->json([
+            'routine' => $routine,
+            'routine_exercises' => $routine_exercises,
+        ]);
     }
 }

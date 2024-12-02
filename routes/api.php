@@ -14,7 +14,6 @@ Route::middleware(['auth:api'])->group(function () {
 
     // Incluir rutas protegidas de los archivos
     include __DIR__ . '/api/ailment.php';
-    include __DIR__ . '/api/ailment_user.php';
     include __DIR__ . '/api/biometric_data.php';
     include __DIR__ . '/api/category.php';
     include __DIR__ . '/api/exercise.php';
