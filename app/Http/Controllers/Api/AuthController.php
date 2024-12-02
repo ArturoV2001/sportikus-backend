@@ -8,7 +8,6 @@ use App\Rules\ClientSecretValid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Passport\Token;
 
 class AuthController extends Controller
 {
@@ -53,7 +52,7 @@ class AuthController extends Controller
             'email' => $login['email'],
             'password' => $login['password'],
         ])) {
-            return response()->json(['message' => 'Invalid credentials'], 401);
+            return response()->json(['message' => 'Por favor, verifica tus credenciales'], 401);
         }
         $user = Auth::guard('web')->user();
         $accessToken = $user->createToken('authToken')->accessToken;
@@ -74,23 +73,38 @@ class AuthController extends Controller
 
     public function checkSession(Request $request)
     {
-        // Obtener el token desde el encabezado
         $token = $request->bearerToken();
-
-        // Verificar si el token es válido
         if (! $token || ! Auth::guard('api')->check()) {
             return response()->json([
                 'message' => 'No active session or invalid token',
             ], 401);
         }
-
-        // Obtener el usuario autenticado
         $user = Auth::guard('api')->user();
 
         return response()->json([
             'message' => 'User session is active',
             'user' => $user,
             'authenticated' => true,
+        ], 200);
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|string|min:8|confirmed',
+        ]);
+        $user = Auth::guard('api')->user();
+        if (! Hash::check($request->current_password, $user->password)) {
+            return response()->json([
+                'message' => 'La contraseña actual no es correcta.',
+            ], 400);
+        }
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return response()->json([
+            'message' => 'La contraseña se ha cambiado correctamente.',
         ], 200);
     }
 }

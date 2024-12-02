@@ -11,8 +11,8 @@ Route::post('login', [AuthController::class, 'login']);
 Route::middleware(['auth:api'])->group(function () {
     Route::middleware('auth:api')->get('logout', [AuthController::class, 'logout']);
     Route::get('check-session', [AuthController::class, 'checkSession'])->name('auth.check-session');
+    Route::post('change-password', [AuthController::class, 'changePassword'])->name('auth.change-password');
 
-    // Incluir rutas protegidas de los archivos
     include __DIR__ . '/api/ailment.php';
     include __DIR__ . '/api/biometric_data.php';
     include __DIR__ . '/api/category.php';

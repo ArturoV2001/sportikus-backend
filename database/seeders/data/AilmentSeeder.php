@@ -21,6 +21,7 @@ class AilmentSeeder extends Seeder
                 'created_at' => null,
                 'updated_at' => null,
                 'deleted_at' => null,
+                'routine_description' => 'Las rutinas están diseñadas para reducir la inflamación, mejorar la movilidad articular y fortalecer los músculos de soporte mediante ejercicios de bajo impacto y movimientos controlados. Se recomienda evitar cargas pesadas, incorporar calentamientos y realizar estiramientos para mantener la flexibilidad.',
             ],
             [
                 'id' => 2,
@@ -30,6 +31,7 @@ class AilmentSeeder extends Seeder
                 'created_at' => null,
                 'updated_at' => null,
                 'deleted_at' => null,
+                'routine_description' => 'El objetivo es fortalecer los tendones afectados sin sobrecargarlos, a través de ejercicios moderados y controlados. Es fundamental evitar movimientos repetitivos o bruscos, realizar pausas entre ejercicios y mantener una técnica precisa para evitar lesiones.',
             ],
             [
                 'id' => 3,
@@ -39,6 +41,7 @@ class AilmentSeeder extends Seeder
                 'created_at' => null,
                 'updated_at' => null,
                 'deleted_at' => null,
+                'routine_description' => 'Las rutinas buscan fortalecer la musculatura sin aumentar la presión intraabdominal ni sobrecargar la columna, utilizando ejercicios de bajo impacto y con soporte. Se recomienda evitar esfuerzos excesivos, movimientos explosivos y trabajar en rangos de movimiento seguros.',
             ],
             [
                 'id' => 4,
@@ -48,6 +51,7 @@ class AilmentSeeder extends Seeder
                 'created_at' => null,
                 'updated_at' => null,
                 'deleted_at' => null,
+                'routine_description' => 'Las rutinas están orientadas a mejorar la capacidad aeróbica y la eficiencia respiratoria mediante ejercicios moderados y pausas frecuentes. Se sugiere evitar actividades de alta intensidad y realizar el entrenamiento en ambientes frescos y bien ventilados.',
             ],
             [
                 'id' => 5,
@@ -57,6 +61,7 @@ class AilmentSeeder extends Seeder
                 'created_at' => null,
                 'updated_at' => null,
                 'deleted_at' => null,
+                'routine_description' => 'El objetivo es mejorar la sensibilidad a la insulina y controlar los niveles de glucosa mediante una combinación de ejercicios aeróbicos y de fuerza. Es importante mantener una intensidad moderada, monitorear los niveles de glucosa antes y después de las rutinas, y asegurar una hidratación adecuada.',
             ],
             [
                 'id' => 6,
@@ -66,6 +71,7 @@ class AilmentSeeder extends Seeder
                 'created_at' => null,
                 'updated_at' => null,
                 'deleted_at' => null,
+                'routine_description' => 'Estas rutinas promueven la liberación de endorfinas y mejoran el bienestar emocional con ejercicios dinámicos, variados y motivadores. Se recomienda evitar rutinas monótonas o demasiado intensas, priorizando movimientos que mantengan el interés y el entusiasmo.',
             ],
             [
                 'id' => 7,
@@ -75,15 +81,7 @@ class AilmentSeeder extends Seeder
                 'created_at' => null,
                 'updated_at' => null,
                 'deleted_at' => null,
-            ],
-            [
-                'id' => 8,
-                'name' => 'Ninguno',
-                'description' => 'El usuario no padece de ninguna condición.',
-                'cronic' => 0,
-                'created_at' => null,
-                'updated_at' => null,
-                'deleted_at' => null,
+                'routine_description' => 'Las rutinas están enfocadas en promover la relajación y reducir el estrés mediante ejercicios moderados realizados temprano en el día. Se recomienda incluir estiramientos y técnicas de respiración para facilitar el descanso y mejorar la calidad del sueño.',
             ],
         ]);
 

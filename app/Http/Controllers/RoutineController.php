@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RoutineRequest;
 use App\Models\Routine\Routine;
+use App\Repositories\RoutineExerciseRepository;
 use App\Repositories\RoutineRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
@@ -82,23 +83,30 @@ class RoutineController extends Controller
     {
         $frequency = request('frequency');
         $ailment_id = request('ailment_id');
-        if (! $frequency || ! is_numeric($frequency) || (! $ailment_id && $ailment_id !== null)) {
+        if (! $frequency || ! is_numeric($frequency)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Parámetros inválidos.',
+                'message' => 'Ingresa todos los datos.',
+            ]);
+        }
+        if ($ailment_id == -1) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Por favor selecciona un padecimiento.',
             ]);
         }
         $user = Auth::user();
-        if ($user->routine_id !== null) {
-            return response()->json([
-                'success' => false,
-                'message' => 'El usuario ya tiene una rutina asignada.',
-            ]);
+        if ($ailment_id) {
+            $routine = Routine::query()->where([
+                'frequency' => $frequency,
+                'ailment_id' => $ailment_id,
+            ])->first();
+        } else {
+            $routine = Routine::query()
+                ->where(['frequency' => $frequency])
+                ->whereNull('ailment_id')
+                ->first();
         }
-        $routine = Routine::query()->where([
-            'frequency' => $frequency,
-            'ailment_id' => $ailment_id,
-        ])->first();
         if (! $routine) {
             return response()->json([
                 'success' => false,
@@ -106,19 +114,28 @@ class RoutineController extends Controller
             ]);
         }
         $user->routine_id = $routine->id;
+        if ($ailment_id) {
+            $user->ailment_id = $ailment_id;
+        }
         $user->save();
 
         return response()->json([
             'success' => true,
-            'message' => 'Rutina asignada correctamente.',
+            'routine_id' => $routine->id,
         ]);
     }
 
     public function getRoutineExercises(): JsonResponse
     {
         $routine_id = request('routine_id');
-        $routine = Routine::query()->find($routine_id);
-        $routine_exercises = Routine::query()->where('routine_id', $routine_id)->get();
+        $filters = ['id' => ['value' => $routine_id, 'matchMode' => '']];
+        $repository = app(RoutineRepository::class);
+        $columns = ['frequency', 'duration', 'days', 'ailment_id', 'ailment_name', 'ailment_routine_description'];
+        $routine = $repository->index(false, false, 'id', '1', $filters, $columns);
+        $filters = ['routine_id' => ['value' => $routine_id, 'matchMode' => '']];
+        $repository = app(RoutineExerciseRepository::class);
+        $columns = ['exercise_name', 'repetitions', 'sets', 'routine_id', 'exercise_id', 'day'];
+        $routine_exercises = $repository->index(false, false, 'id', '1', $filters, $columns);
 
         return response()->json([
             'routine' => $routine,

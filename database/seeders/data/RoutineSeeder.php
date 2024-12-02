@@ -59,6 +59,12 @@ class RoutineSeeder extends Seeder
                 ['id' => 21, 'frequency' => 6, 'duration' => 40, 'days' => 6, 'ailment_id' => 7],
             ]
         );
-
+        Routine::query()->insert(
+            [
+                ['id' => 22, 'frequency' => 2, 'duration' => 60, 'days' => 2, 'ailment_id' => null],
+                ['id' => 23, 'frequency' => 3, 'duration' => 50, 'days' => 3, 'ailment_id' => null],
+                ['id' => 24, 'frequency' => 6, 'duration' => 45, 'days' => 6, 'ailment_id' => null],
+            ]
+        );
     }
 }

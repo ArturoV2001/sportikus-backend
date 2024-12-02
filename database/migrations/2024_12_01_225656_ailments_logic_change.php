@@ -15,13 +15,10 @@ return new class extends Migration
             $table->foreign('ailment_id')->references('id')->on('ailments');
         });
         Schema::table('ailments', function (Blueprint $table) {
-            $table->string('routine_description')->nullable();
+            $table->text('routine_description')->nullable();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::create('ailment_user', function (Blueprint $table) {
