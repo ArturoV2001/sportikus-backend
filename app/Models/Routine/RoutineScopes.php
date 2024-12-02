@@ -43,4 +43,12 @@ trait RoutineScopes
                 ->whereColumn('routines.ailment_id', 'ailments.id'),
         ]);
     }
+
+    public function scopeWithAliasAilmentRoutineDescription(Builder $query): void
+    {
+        $query->addSelect([
+            'ailment_routine_description' => Ailment::query()->select('routine_description')
+                ->whereColumn('routines.ailment_id', 'ailments.id'),
+        ]);
+    }
 }

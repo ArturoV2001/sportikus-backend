@@ -19,7 +19,7 @@ trait RoutineExerciseScopes
                 if ($this->hasGetMutator($column)) {
                     return;
                 }
-                $query->where($column, 'like', '%' . trim($value, '%') . '%');
+                $query->where($column, '=', $value);
                 break;
         }
     }

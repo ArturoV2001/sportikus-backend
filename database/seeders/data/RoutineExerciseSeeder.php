@@ -262,5 +262,42 @@ class RoutineExerciseSeeder extends Seeder
                 ['id' => 189, 'repetitions' => 10, 'sets' => 3, 'routine_id' => 21, 'exercise_id' => 101, 'day' => 6],
             ]
         );
+        RoutineExercise::query()->insert(
+            [
+                // Rutina 1 (2 días: tren inferior y superior)
+                ['id' => 190, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 22, 'exercise_id' => 7, 'day' => 1],
+                ['id' => 191, 'repetitions' => 10, 'sets' => 3, 'routine_id' => 22, 'exercise_id' => 10, 'day' => 1],
+                ['id' => 192, 'repetitions' => 12, 'sets' => 2, 'routine_id' => 22, 'exercise_id' => 11, 'day' => 1],
+                ['id' => 193, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 22, 'exercise_id' => 41, 'day' => 2],
+                ['id' => 194, 'repetitions' => 10, 'sets' => 3, 'routine_id' => 22, 'exercise_id' => 50, 'day' => 2],
+                ['id' => 195, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 22, 'exercise_id' => 45, 'day' => 2],
+
+                // Rutina 2 (3 días: push, pull, leg)
+                ['id' => 196, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 23, 'exercise_id' => 1, 'day' => 1],
+                ['id' => 197, 'repetitions' => 10, 'sets' => 3, 'routine_id' => 23, 'exercise_id' => 7, 'day' => 1],
+                ['id' => 198, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 23, 'exercise_id' => 3, 'day' => 1],
+                ['id' => 199, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 23, 'exercise_id' => 21, 'day' => 2],
+                ['id' => 200, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 23, 'exercise_id' => 25, 'day' => 2],
+                ['id' => 201, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 23, 'exercise_id' => 26, 'day' => 2],
+                ['id' => 202, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 23, 'exercise_id' => 41, 'day' => 3],
+                ['id' => 203, 'repetitions' => 10, 'sets' => 3, 'routine_id' => 23, 'exercise_id' => 50, 'day' => 3],
+                ['id' => 204, 'repetitions' => 12, 'sets' => 2, 'routine_id' => 23, 'exercise_id' => 45, 'day' => 3],
+
+                // Rutina 3 (6 días: pecho, pierna, espalda, hombro, pierna, brazos)
+                ['id' => 205, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 1, 'day' => 1],
+                ['id' => 206, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 7, 'day' => 1],
+                ['id' => 207, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 41, 'day' => 2],
+                ['id' => 208, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 43, 'day' => 2],
+                ['id' => 209, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 21, 'day' => 3],
+                ['id' => 210, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 26, 'day' => 3],
+                ['id' => 211, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 81, 'day' => 4],
+                ['id' => 212, 'repetitions' => 10, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 83, 'day' => 4],
+                ['id' => 213, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 41, 'day' => 5],
+                ['id' => 214, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 50, 'day' => 5],
+                ['id' => 215, 'repetitions' => 12, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 105, 'day' => 6],
+                ['id' => 216, 'repetitions' => 10, 'sets' => 3, 'routine_id' => 24, 'exercise_id' => 101, 'day' => 6],
+            ]
+        );
+
     }
 }
