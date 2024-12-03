@@ -90,12 +90,15 @@ class RoutineController extends Controller
             ]);
         }
         $user = Auth::user();
-        if ($user->routine_id !== null) {
+
+        if ($ailment_id == -1 ){
             return response()->json([
                 'success' => false,
-                'message' => 'El usuario ya tiene una rutina asignada.',
+                'message' => 'Por favor, selecciona un padecimiento.',
             ]);
+
         }
+
         if ($ailment_id) {
             $routine = Routine::query()->where([
                 'frequency' => $frequency,
