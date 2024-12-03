@@ -86,16 +86,16 @@ class RoutineController extends Controller
         if (! $frequency || ! is_numeric($frequency)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Ingresa todos los datos.',
-            ]);
-        }
-        if ($ailment_id == -1) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Por favor selecciona un padecimiento.',
+                'message' => 'Parámetros inválidos.',
             ]);
         }
         $user = Auth::user();
+        if ($user->routine_id !== null) {
+            return response()->json([
+                'success' => false,
+                'message' => 'El usuario ya tiene una rutina asignada.',
+            ]);
+        }
         if ($ailment_id) {
             $routine = Routine::query()->where([
                 'frequency' => $frequency,
@@ -132,6 +132,7 @@ class RoutineController extends Controller
         $repository = app(RoutineRepository::class);
         $columns = ['frequency', 'duration', 'days', 'ailment_id', 'ailment_name', 'ailment_routine_description'];
         $routine = $repository->index(false, false, 'id', '1', $filters, $columns);
+
         $filters = ['routine_id' => ['value' => $routine_id, 'matchMode' => '']];
         $repository = app(RoutineExerciseRepository::class);
         $columns = ['exercise_name', 'repetitions', 'sets', 'routine_id', 'exercise_id', 'day'];
