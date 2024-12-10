@@ -91,7 +91,7 @@ class RoutineController extends Controller
         }
         $user = Auth::user();
 
-        if ($ailment_id == -1 ){
+        if ($ailment_id == -1) {
             return response()->json([
                 'success' => false,
                 'message' => 'Por favor, selecciona un padecimiento.',

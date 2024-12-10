@@ -32,6 +32,7 @@ class AuthController extends Controller
             'last_name' => $register['last_name'],
             'weight' => $register['weight'],
             'birthdate' => $register['birthdate'],
+            'gender_id' => $register['gender_id'],
         ]);
 
         $accessToken = $user->createToken('authToken')->accessToken;
