@@ -11,6 +11,9 @@ trait ExerciseScopes
     public function scopeFilterByColumn(Builder $query, string $column, mixed $value): void
     {
         switch ($column) {
+            case 'muscle_id':
+                $query->where($column, '=', $value);
+                break;
             default:
                 if ($this->hasAliasScope($column)) {
                     $query->having($column, 'LIKE', $value);
